@@ -67,7 +67,7 @@ func sortClauseBuilder(c gormClause.Clause, builder gormClause.Builder) {
 func limitClauseBuilder(c gormClause.Clause, builder gormClause.Builder) {
 	if c.Expression != nil {
 		gormLimitClause := c.Expression.(gormClause.Limit)
-		limitClause := Limit{Limit: gormLimitClause.Limit, Offset: gormLimitClause.Offset}
+		limitClause := Limit{Limit: *gormLimitClause.Limit, Offset: gormLimitClause.Offset}
 
 		if c.BeforeExpression != nil {
 			c.BeforeExpression.Build(builder)
