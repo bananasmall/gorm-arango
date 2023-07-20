@@ -185,7 +185,7 @@ func scan(db *gorm.DB, model interface{}) error {
 
 					for idx, field := range fields {
 						if field != nil {
-							field.Set(elem, values[idx])
+							field.Set(db.Statement.Context,elem, values[idx])
 						}
 					}
 				}
